@@ -290,33 +290,41 @@ export default function App() {
                 />
               </div>
             </div>
-
             {/* Words to Improve */}
-            {result.mistakes && result.mistakes.length > 0 ? (
-              <div className="rounded-xl border border-rose-500/30 bg-rose-500/5 p-5">
-                <div className="flex items-center gap-2 mb-3">
-                  <AlertTriangle className="w-4 h-4 text-rose-400" />
-                  <h3 className="font-semibold text-rose-300">Words to Improve</h3>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {result.mistakes.map((word, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/30 text-rose-200 text-sm"
-                    >
-                      {word}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <div className="flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-5">
-                <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
-                <p className="text-emerald-300 text-sm font-medium">
-                  No significant pronunciation issues detected.
-                </p>
-              </div>
-            )}
+{result.mistakes && result.mistakes.length > 0 ? (
+  <div className="rounded-xl border border-rose-500/30 bg-rose-500/5 p-5">
+    <div className="flex items-center gap-2 mb-4">
+      <AlertTriangle className="w-4 h-4 text-rose-400" />
+      <h3 className="font-semibold text-rose-300">
+        Words to Improve
+      </h3>
+    </div>
+
+    <div className="space-y-3">
+      {result.mistakes.map((mistake, index) => (
+        <div
+          key={index}
+          className="rounded-lg border border-rose-500/20 bg-rose-500/10 p-4"
+        >
+          <p className="font-semibold text-rose-200">
+            {mistake.word}
+          </p>
+
+          <p className="text-sm text-rose-300 mt-1">
+            {mistake.issue}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+) : (
+  <div className="flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-5">
+    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+    <p className="text-emerald-300 text-sm font-medium">
+      No significant pronunciation issues detected.
+    </p>
+  </div>
+)}
 
             {/* AI Feedback */}
             <div className="rounded-xl border-l-4 border-indigo-400 bg-indigo-500/5 p-5">
