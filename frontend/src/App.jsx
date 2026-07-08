@@ -121,7 +121,7 @@ export default function App() {
     }
   };
 
-  const scoreColor = (score) => {
+  const scoreColor = (score) => {   score = Number(score);
     if (score > 90) return { ring: "#34d399", text: "text-emerald-400", label: "Excellent" };
     if (score >= 70) return { ring: "#fbbf24", text: "text-amber-400", label: "Good" };
     return { ring: "#f87171", text: "text-rose-400", label: "Needs Improvement" };
