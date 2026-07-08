@@ -11,7 +11,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 
-const API_URL = "https://livo-pronunciation-checker-backend.onrender.com";
+const API_URL = "https://livo-pronunciation-checker-backend.onrender.com/upload";
 const MIN_DURATION = 30;
 const MAX_DURATION = 45;
 
